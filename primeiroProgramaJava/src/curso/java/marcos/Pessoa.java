@@ -5,7 +5,6 @@ public class Pessoa {
 	private String sobreNome;
 	private Integer idade;
 	private String cidade;
-	private String estado;
 	
 	public String getName() {
 		return name;
@@ -37,14 +36,6 @@ public class Pessoa {
 
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
-	}
-
-	public String getEstado() {
-		return estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
 	}
 	
 }
