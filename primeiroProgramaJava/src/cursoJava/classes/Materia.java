@@ -38,7 +38,7 @@ public class Materia {
 	
 	@Override
 	public String toString() {
-		return "Materia [diciplina=" + getDiciplina() + ", nota=" + getNota() + "]";
+		return "diciplina=" + getDiciplina() + ", nota=" + getNota();
 	}
 	
 	

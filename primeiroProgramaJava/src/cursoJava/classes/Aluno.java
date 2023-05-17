@@ -28,17 +28,6 @@ public class Aluno {
 		this.materia = materia;
 	}
 	
-	public Aluno() {
-		
-	}
-	public Aluno (String nomePadrao) {
-		nome = nomePadrao;
-	}
-	public Aluno(String nomePadrao, int idadePadrao) {
-		nome = nomePadrao;
-		idade = idadePadrao;
-	}
-	
 	public String getNome() {
 		return nome;
 	}
@@ -104,18 +93,18 @@ public class Aluno {
 	public Double getMediaNota() {
 		Double somaMedia = 0.0;
 		for(Materia materia : materia) {
-			somaMedia += materia.getNota();
+			somaMedia = somaMedia + materia.getNota();
 		}
-		 
 		return somaMedia / materia.size();
 	}
 	
 	
 	@Override
 	public String toString() {
-		return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
-				+ registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai
-				+ ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + ", notas: " + getMediaNota();
+		return "Aluno: nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
+				+ registroGeral + ", numeroCpf=" + numeroCpf + ", \nnomeMae=" + nomeMae + ", nomePai=" + nomePai
+				+ ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + "\nmedias: " + getMediaNota()
+				+ "\n" + materia;
 		
 	}
 	
