@@ -1,5 +1,7 @@
 package cursoJava.classes;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Aluno {
@@ -15,15 +17,16 @@ public class Aluno {
 	private String serieMatriculado;
 
 	
-	private Materia materia = new Materia();
+	private List<Materia> materia = new ArrayList<Materia>();
 	
-	public Materia getMateria() {
+	
+	public List<Materia> getMateria() {
 		return materia;
 	}
-	public void setMateria(Materia materia) {
+	
+	public void setMateria(List<Materia> materia) {
 		this.materia = materia;
 	}
-	
 	
 	public Aluno() {
 		
@@ -97,22 +100,26 @@ public class Aluno {
 		this.serieMatriculado = serieMatriculado;
 	}
 	
+	/*notas do aluno */	
+	public Double getMediaNota() {
+		Double somaMedia = 0.0;
+		for(Materia materia : materia) {
+			somaMedia += materia.getNota();
+		}
+		 
+		return somaMedia / materia.size();
+	}
 	
 	
 	@Override
 	public String toString() {
 		return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
 				+ registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai
-				+ ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + ", serieMatriculado="
-				+ serieMatriculado + ", materia=" + materia + "]";
+				+ ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + ", notas: " + getMediaNota();
+		
 	}
 	
-	/*notas do aluno */
-	public Double mediaNota() {
-		return (materia.getNota1() + materia.getNota2() + materia.getNota3() + materia.getNota4()) / 4;
-	}
-
-	
+		
 	@Override
 	public int hashCode() {
 		return Objects.hash(numeroCpf, registroGeral, serieMatriculado);

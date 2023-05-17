@@ -4,6 +4,7 @@ package cursoJava.executavel;
 import javax.swing.JOptionPane;
 
 import cursoJava.classes.Aluno;
+import cursoJava.classes.Materia;
 
 public class PrimeiraClasseJava {
 	public static void main(String[] args) {
@@ -28,23 +29,34 @@ public class PrimeiraClasseJava {
 				
 		
 		Aluno aluno1 = new Aluno();
-		
 		aluno1.setNome(nome);
 		aluno1.setIdade(idade);
 		aluno1.setDataNascimento(dataNasc);
 		aluno1.setNumeroCpf(cpf);
-		aluno1.getMateria().setDiciplina1(diciplina1);
-		aluno1.getMateria().setNota1(nota1);
-		aluno1.getMateria().setDiciplina2(diciplina2);
-		aluno1.getMateria().setNota2(nota2);
-		aluno1.getMateria().setDiciplina3(diciplina3);
-		aluno1.getMateria().setNota3(nota3);
-		aluno1.getMateria().setDiciplina1(diciplina4);
-		aluno1.getMateria().setNota4(nota4);
 		
+		Materia materia1 = new Materia();
+		materia1.setDiciplina(diciplina1);
+		materia1.setNota(nota1);
+		aluno1.getMateria().add(materia1);
+		
+		Materia materia2 = new Materia();
+		materia1.setDiciplina(diciplina2);
+		materia1.setNota(nota2);
+		aluno1.getMateria().add(materia2);
+		
+		Materia materia3 = new Materia();
+		materia1.setDiciplina(diciplina3);
+		materia1.setNota(nota3);
+		aluno1.getMateria().add(materia3);
+		
+		Materia materia4 = new Materia();
+		materia1.setDiciplina(diciplina4);
+		materia1.setNota(nota4);
+		aluno1.getMateria().add(materia4);
 		
 		
 		JOptionPane.showMessageDialog(null, aluno1);
+		System.out.println(aluno1.getMediaNota());
 	}
 }
 
