@@ -1,5 +1,7 @@
 package cursoJava.classes;
 
+import java.util.Objects;
+
 public class Aluno {
 	private String nome;
 	private int idade;
@@ -11,11 +13,17 @@ public class Aluno {
 	private String dataMatricula;
 	private String nomeEscola;
 	private String serieMatriculado;
+
 	
-	private Double nota1;
-	private Double nota2;
-	private Double nota3;
-	private Double nota4;
+	private Materia materia = new Materia();
+	
+	public Materia getMateria() {
+		return materia;
+	}
+	public void setMateria(Materia materia) {
+		this.materia = materia;
+	}
+	
 	
 	public Aluno() {
 		
@@ -90,51 +98,38 @@ public class Aluno {
 	}
 	
 	
+	
+	@Override
+	public String toString() {
+		return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
+				+ registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai
+				+ ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + ", serieMatriculado="
+				+ serieMatriculado + ", materia=" + materia + "]";
+	}
+	
 	/*notas do aluno */
-	public Double getNota1() {
-		return nota1;
+	public Double mediaNota() {
+		return (materia.getNota1() + materia.getNota2() + materia.getNota3() + materia.getNota4()) / 4;
 	}
-	public void setNota1(Double nota1) {
-		this.nota1 = nota1;
+
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(numeroCpf, registroGeral, serieMatriculado);
 	}
-	public Double getNota2() {
-		return nota2;
-	}
-	public void setNota2(Double nota2) {
-		this.nota2 = nota2;
-	}
-	public Double getNota3() {
-		return nota3;
-	}
-	public void setNota3(Double nota3) {
-		this.nota3 = nota3;
-	}
-	public Double getNota4() {
-		return nota4;
-	}
-	public void setNota4(Double nota4) {
-		this.nota4 = nota4;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Aluno other = (Aluno) obj;
+		return Objects.equals(numeroCpf, other.numeroCpf) && Objects.equals(registroGeral, other.registroGeral)
+				&& Objects.equals(serieMatriculado, other.serieMatriculado);
 	}
 	
-	public Double getMediaNota() {
-		return (nota1 + nota2 + nota3 + nota4) / 4;	
-	}
 	
-	public String getAlunoAprovado() {
-		double media = this.getMediaNota();
-		if(media >= 10) {
-			return "aluno: " + nome + ", idade: " + idade 
-					+ "\ndata de Nascimento: " + dataNascimento +"\n"
-					+"parabens nota Maxima: " + media; 
-		}else if(media == 5){
-			return "aluno: " + nome + ", idade: " + idade 
-					+ "\ndata de Nascimento: " + dataNascimento +"\n"
-					+"recuperação, media: " + media;
-		}else {
-			return "aluno: " + nome + ", idade: " + idade 
-					+ "\ndata de Nascimento: " + dataNascimento +"\n"
-					+"reprovado, media: " + media;
-		}
-	}
 }
 
