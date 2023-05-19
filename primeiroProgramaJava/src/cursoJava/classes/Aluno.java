@@ -98,12 +98,21 @@ public class Aluno {
 		return somaMedia / materia.size();
 	}
 	
+	public String getAlunoAprovado() {
+		if(getMediaNota() >=10 || getMediaNota() >= 6) {
+			return "parabens aluno!! aprovado com a media: " + getMediaNota();
+		}else if(getMediaNota() == 5) {
+			return "aluno de recuperação, com a media: " + getMediaNota();
+		}else {
+			return "Aluno reprovado, media: " + getMediaNota();
+		}
+	}
 	
 	@Override
 	public String toString() {
 		return "Aluno: nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
 				+ registroGeral + ", numeroCpf=" + numeroCpf + ", \nnomeMae=" + nomeMae + ", nomePai=" + nomePai
-				+ ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + "\nmedias: " + getMediaNota()
+				+ ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + "\nmedias: " + getAlunoAprovado()
 				+ "\n" + materia;
 		
 	}
